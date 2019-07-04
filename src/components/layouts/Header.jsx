@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-ui/core';
 // import { makeStyles } from '@material-ui/core/styles';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -7,6 +7,7 @@ import { AppBar, Toolbar, IconButton, Typography, Button, makeStyles } from '@ma
 // import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Create from '../exercises/dialogs/Create'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Header = () => {
+const Header = ({ skills }) => {
     const classes = useStyles();
     return (
         <div>
@@ -30,10 +31,11 @@ const Header = () => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h3" className={classes.title}>
-                        Material UI 
-          </Typography>
-                    <Button color="inherit">Sing up</Button>
-                    <Button color="inherit">Log in</Button>
+                        Material UI
+                    </Typography>
+                    <Create 
+                        skills={skills}
+                    />
                 </Toolbar>
             </AppBar>
         </div>

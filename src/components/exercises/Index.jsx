@@ -34,8 +34,8 @@ const Index = ({
                             !category || category === group
                                 ? <Fragment key={group} >
                                     <Typography
-                                        // variant="title" 
-                                        style={{ textTransform: 'capitalize' }}>
+                                        variant="h5"
+                                        style={{ fontFamily: 'impact' }}>
                                         {group}
                                     </Typography>
                                     <List component="ul">

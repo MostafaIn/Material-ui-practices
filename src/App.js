@@ -8,7 +8,7 @@ import { skills, exercises } from '../src/store';
 class App extends Component {
   state = {
     exercises,
-    exercise:{}
+    exercise: {}
   }
   getExercisesByMuscles() {
     return Object.entries(
@@ -24,23 +24,25 @@ class App extends Component {
       category
     })
   }
-  handleExerciseSelected = id =>{
-    this.setState((prevState) =>({
-      exercise: exercises.find( ex => ex.id === id)
+  handleExerciseSelected = id => {
+    this.setState((prevState) => ({
+      exercise: exercises.find(ex => ex.id === id)
     }))
   }
   render() {
     const exercises = this.getExercisesByMuscles(),
-      { category,exercise } = this.state
+      { category, exercise } = this.state
     console.log(this.getExercisesByMuscles());
     return (
       <div className="App">
-        <Header />
+        <Header
+          skills={skills}
+        />
         <Index
-          exercise = {exercise}
-          category = {category}
+          exercise={exercise}
+          category={category}
           exercises={exercises}
-          onSelect= {this.handleExerciseSelected}
+          onSelect={this.handleExerciseSelected}
         />
         <Footer
           category={category}
