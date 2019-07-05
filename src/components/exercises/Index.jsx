@@ -25,39 +25,39 @@ const Index = ({
         description = 'Please select an exercise from the list on the left side.'
     }
 }) => {
-        return (<div>
-            <Grid container>
-                <Grid item sm>
-                    <Paper style={styles.Paper}>
-                        {exercises.map(([group, exercises]) => !category || category === group
-                            ? <Fragment key={group}>
-                                <Typography variant="h5" style={{ fontFamily: 'impact' }}>
-                                    {group}
-                                </Typography>
-                                <List component="ul">
-                                    {exercises.map(({ id, title }) => <ListItem button key={id} onClick={() => onSelect(id)}>
-                                        <ListItemText primary={title} />
-                                    </ListItem>)}
+    return (<div>
+        <Grid container>
+            <Grid item sm>
+                <Paper style={styles.Paper}>
+                    {exercises.map(([group, exercises]) => !category || category === group
+                        ? <Fragment key={group}>
+                            <Typography variant="h5" style={{ fontFamily: 'impact' }}>
+                                {group}
+                            </Typography>
+                            <List component="ul">
+                                {exercises.map(({ id, title }) => <ListItem button key={id} onClick={() => onSelect(id)}>
+                                    <ListItemText primary={title} />
+                                </ListItem>)}
 
 
-                                </List>
-                            </Fragment>
-                            : null)}
-                    </Paper>
-                </Grid>
-                <Grid item sm>
-                    <Paper style={styles.Paper}>
-                        <Typography variant="h4">
-                            {title}
-                        </Typography>
-                        <Typography style={{ marginTop: 20 }}>
-                            {description}
-                        </Typography>
-                    </Paper>
-                </Grid>
+                            </List>
+                        </Fragment>
+                        : null)}
+                </Paper>
             </Grid>
+            <Grid item sm>
+                <Paper style={styles.Paper}>
+                    <Typography variant="h4">
+                        {title}
+                    </Typography>
+                    <Typography style={{ marginTop: 20 }}>
+                        {description}
+                    </Typography>
+                </Paper>
+            </Grid>
+        </Grid>
 
-        </div>);
-    }
+    </div>);
+}
 
 export default Index

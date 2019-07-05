@@ -57,7 +57,7 @@ class Create extends Component {
                 <Fab onClick={this.handleToggle} style={{ backgroundColor: '#ffb502' }}>
                     <AddIcon />
                 </Fab>
-                <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
+                <Dialog open={open} onClose={this.handleToggle}>
                     <DialogTitle id="form-dialog-title">Create a New Skills</DialogTitle>
                     <DialogContent>
                         <DialogContentText>

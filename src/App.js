@@ -8,7 +8,8 @@ import { skills, exercises } from '../src/store';
 class App extends Component {
   state = {
     exercises,
-    exercise: {}
+    exercise: {
+    }
   }
   getExercisesBySkills() {
     return Object.entries(
@@ -25,7 +26,7 @@ class App extends Component {
     })
   }
   handleExerciseSelected = id => {
-    this.setState((prevState) => ({
+    this.setState(({ exercises }) => ({
       exercise: exercises.find(ex => ex.id === id)
     }))
   }
