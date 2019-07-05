@@ -33,13 +33,28 @@ class Create extends Component {
 
         })
     }
+    handleSubmit = () => {
+        const { exercise } = this.state
+        this.props.onCreate({
+            id: exercise.title.toLocaleLowerCase().replace(/ /g, '-'),
+            ...exercise
+        })
+        this.setState({
+            open: false,
+            exercise: {
+                title: '',
+                description: '',
+                skills: ''
+            }
+        })
+    }
     render() {
         const { open, exercise: { title, description, skills } } = this.state
         const { classes, skills: categories } = this.props
 
         return (
             <div>
-                <Fab className={classes.fab} onClick={this.handleToggle} style={{ backgroundColor: '#ffb502' }}>
+                <Fab onClick={this.handleToggle} style={{ backgroundColor: '#ffb502' }}>
                     <AddIcon />
                 </Fab>
                 <Dialog open={open} onClose={this.handleToggle} aria-labelledby="form-dialog-title">
@@ -65,7 +80,7 @@ class Create extends Component {
                                     onChange={this.handleChange('skills')}
                                 >
                                     {categories.map(category =>
-                                        <MenuItem value={category}>
+                                        <MenuItem key={category} value={category}>
                                             {category}
                                         </MenuItem>
                                     )}
@@ -84,11 +99,8 @@ class Create extends Component {
                         </form>
                     </DialogContent>
                     <DialogActions>
-                        <Button color="primary" variant="raised">
+                        <Button color="primary" onClick={this.handleSubmit}>
                             Create
-                        </Button>
-                        <Button color="primary">
-                            Subscribe
                         </Button>
                     </DialogActions>
                 </Dialog>

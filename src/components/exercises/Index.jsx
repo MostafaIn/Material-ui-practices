@@ -25,33 +25,24 @@ const Index = ({
         description = 'Please select an exercise from the list on the left side.'
     }
 }) => {
-    return (
-        <div>
-            <Grid container >
+        return (<div>
+            <Grid container>
                 <Grid item sm>
                     <Paper style={styles.Paper}>
-                        {exercises.map(([group, exercises]) =>
-                            !category || category === group
-                                ? <Fragment key={group} >
-                                    <Typography
-                                        variant="h5"
-                                        style={{ fontFamily: 'impact' }}>
-                                        {group}
-                                    </Typography>
-                                    <List component="ul">
-                                        {exercises.map(({ id, title }) =>
-                                            <ListItem button key={id} onClick={() => onSelect(id)}>
-                                                <ListItemText primary={title} />
-                                            </ListItem>
-                                        )}
+                        {exercises.map(([group, exercises]) => !category || category === group
+                            ? <Fragment key={group}>
+                                <Typography variant="h5" style={{ fontFamily: 'impact' }}>
+                                    {group}
+                                </Typography>
+                                <List component="ul">
+                                    {exercises.map(({ id, title }) => <ListItem button key={id} onClick={() => onSelect(id)}>
+                                        <ListItemText primary={title} />
+                                    </ListItem>)}
 
-                                        {/* <ListItemLink href="#simple-list">
-                                        <ListItemText primary="Spam" />
-                                    </ListItemLink> */}
-                                    </List>
-                                </Fragment>
-                                : null
-                        )}
+
+                                </List>
+                            </Fragment>
+                            : null)}
                     </Paper>
                 </Grid>
                 <Grid item sm>
@@ -66,8 +57,7 @@ const Index = ({
                 </Grid>
             </Grid>
 
-        </div>
-    )
-}
+        </div>);
+    }
 
 export default Index

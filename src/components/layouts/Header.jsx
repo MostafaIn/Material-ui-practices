@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Header = ({ skills }) => {
+const Header = ({ skills, onExerciseCreate }) => {
     const classes = useStyles();
     return (
         <div>
@@ -35,6 +35,7 @@ const Header = ({ skills }) => {
                     </Typography>
                     <Create 
                         skills={skills}
+                        onCreate={onExerciseCreate}
                     />
                 </Toolbar>
             </AppBar>
