@@ -31,7 +31,7 @@ const Header = ({ skills, onExerciseCreate }) => {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h3" className={classes.title}>
-                        <Typography style={{ fontSize: '1rem', marginTop: '20px' }}>my skills within</Typography>
+                        <Typography style={{ fontSize: '1rem', marginTop: '22px' }}>my skills within</Typography>
                         Material UI
                     </Typography>
                     <Create
