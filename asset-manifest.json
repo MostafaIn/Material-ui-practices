@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Material-ui-practices/static/css/main.2cce8147.chunk.css",
-    "main.js": "/Material-ui-practices/static/js/main.63a3e83d.chunk.js",
-    "main.js.map": "/Material-ui-practices/static/js/main.63a3e83d.chunk.js.map",
+    "main.js": "/Material-ui-practices/static/js/main.b954034f.chunk.js",
+    "main.js.map": "/Material-ui-practices/static/js/main.b954034f.chunk.js.map",
     "runtime~main.js": "/Material-ui-practices/static/js/runtime~main.dbb579b7.js",
     "runtime~main.js.map": "/Material-ui-practices/static/js/runtime~main.dbb579b7.js.map",
-    "static/js/2.e078ec0d.chunk.js": "/Material-ui-practices/static/js/2.e078ec0d.chunk.js",
-    "static/js/2.e078ec0d.chunk.js.map": "/Material-ui-practices/static/js/2.e078ec0d.chunk.js.map",
+    "static/js/2.33d47c2a.chunk.js": "/Material-ui-practices/static/js/2.33d47c2a.chunk.js",
+    "static/js/2.33d47c2a.chunk.js.map": "/Material-ui-practices/static/js/2.33d47c2a.chunk.js.map",
     "index.html": "/Material-ui-practices/index.html",
-    "precache-manifest.bcb10e05810284a9f872861364a93fd0.js": "/Material-ui-practices/precache-manifest.bcb10e05810284a9f872861364a93fd0.js",
+    "precache-manifest.7901c4466884305ba56a363fa090c499.js": "/Material-ui-practices/precache-manifest.7901c4466884305ba56a363fa090c499.js",
     "service-worker.js": "/Material-ui-practices/service-worker.js",
     "static/css/main.2cce8147.chunk.css.map": "/Material-ui-practices/static/css/main.2cce8147.chunk.css.map"
   }
