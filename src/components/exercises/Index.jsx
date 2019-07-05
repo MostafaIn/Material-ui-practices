@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { Grid, Paper, Typography, List, ListItem, ListItemText } from "@material-ui/core";
-
+import { Grid, Paper, Typography, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton } from "@material-ui/core";
+import { Delete } from '@material-ui/icons'
 
 const styles = {
     Paper: {
@@ -23,7 +23,8 @@ const Index = ({
         id,
         title = 'Welcome!',
         description = 'Please select an exercise from the list on the left side.'
-    }
+    },
+    onDelete
 }) => {
     return (<div>
         <Grid container>
@@ -37,9 +38,12 @@ const Index = ({
                             <List component="ul">
                                 {exercises.map(({ id, title }) => <ListItem button key={id} onClick={() => onSelect(id)}>
                                     <ListItemText primary={title} />
+                                    <ListItemSecondaryAction>
+                                        <IconButton onClick={() => onDelete(id)}>
+                                            <Delete />
+                                        </IconButton>
+                                    </ListItemSecondaryAction>
                                 </ListItem>)}
-
-
                             </List>
                         </Fragment>
                         : null)}
