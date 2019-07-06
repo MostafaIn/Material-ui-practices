@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Grid, Paper, Typography, List, ListItem, ListItemText, ListItemSecondaryAction, IconButton } from "@material-ui/core";
-import { Delete } from '@material-ui/icons'
+import { Delete, Edit } from '@material-ui/icons'
+import Form from './Form'
 
 const styles = {
     Paper: {
@@ -16,15 +17,20 @@ const styles = {
 // }
 
 const Index = ({
+    skills,
     exercises,
+    exercise,
     category,
     onSelect,
+    editMode,
     exercise: {
         id,
         title = 'Welcome!',
         description = 'Please select an exercise from the list on the left side.'
     },
-    onDelete
+    onDelete,
+    onSelectEdit,
+    onEdit
 }) => {
     return (<div>
         <Grid container>
@@ -39,6 +45,9 @@ const Index = ({
                                 {exercises.map(({ id, title }) => <ListItem button key={id} onClick={() => onSelect(id)}>
                                     <ListItemText primary={title} />
                                     <ListItemSecondaryAction>
+                                        <IconButton onClick={() => onSelectEdit(id)}>
+                                            <Edit />
+                                        </IconButton>
                                         <IconButton onClick={() => onDelete(id)}>
                                             <Delete />
                                         </IconButton>
@@ -51,12 +60,21 @@ const Index = ({
             </Grid>
             <Grid item sm>
                 <Paper style={styles.Paper}>
-                    <Typography variant="h4">
-                        {title}
-                    </Typography>
-                    <Typography style={{ marginTop: 20 }}>
-                        {description}
-                    </Typography>
+                    {editMode
+                        ? <Form 
+                            exercise={exercise}
+                            skills={skills}
+                            onSubmit={onEdit}
+                        />
+                        : <Fragment>
+                            <Typography variant="h4">
+                                {title}
+                            </Typography>
+                            <Typography style={{ marginTop: 20 }}>
+                                {description}
+                            </Typography>
+                        </Fragment>}
+
                 </Paper>
             </Grid>
         </Grid>

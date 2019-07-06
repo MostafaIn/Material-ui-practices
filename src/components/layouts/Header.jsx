@@ -7,7 +7,7 @@ import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-u
 // import Button from '@material-ui/core/Button';
 // import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Create from '../exercises/dialogs/Create'
+import CreateDialog from '../exercises/Dialog'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -34,7 +34,7 @@ const Header = ({ skills, onExerciseCreate }) => {
                         <Typography style={{ fontSize: '1rem', marginTop: '22px' }}>my skills within</Typography>
                         Material UI
                     </Typography>
-                    <Create
+                    <CreateDialog
                         skills={skills}
                         onCreate={onExerciseCreate}
                     />
