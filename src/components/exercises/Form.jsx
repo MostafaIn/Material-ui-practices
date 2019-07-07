@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = theme => ({
     formControl: {
-        width: 300
+        width: 250
     }
 })
 
@@ -18,10 +18,11 @@ class Form extends Component {
             skills: ''
         }
     }
-    componentWillReceiveProps({ exercise }) {
-        this.setState({
-            ...exercise
-        })
+    static getDerivedStateFromProps({ exercise }) {
+        // this.setState({
+        //     ...exercise
+        // })
+        return exercise || null
     }
     handleChange = name => ({ target: { value } }) => {
         this.setState({

@@ -6,7 +6,7 @@ import Form from './Form'
 const styles = {
     Paper: {
         padding: 20,
-        marginTop: 10,
+        marginTop: 5,
         marginBottom: 10,
         height: 500,
         overflowY: 'auto'
@@ -34,7 +34,7 @@ const Index = ({
 }) => {
     return (<div>
         <Grid container>
-            <Grid item sm>
+            <Grid item xs={12} sm={6}>
                 <Paper style={styles.Paper}>
                     {exercises.map(([group, exercises]) => !category || category === group
                         ? <Fragment key={group}>
@@ -58,10 +58,10 @@ const Index = ({
                         : null)}
                 </Paper>
             </Grid>
-            <Grid item sm>
+            <Grid item xs={12} sm={6}>
                 <Paper style={styles.Paper}>
                     {editMode
-                        ? <Form 
+                        ? <Form
                             exercise={exercise}
                             skills={skills}
                             onSubmit={onEdit}
