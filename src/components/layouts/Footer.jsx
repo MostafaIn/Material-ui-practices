@@ -1,17 +1,17 @@
 import React from 'react';
-import { makeStyles, Paper, Tabs, Tab } from '@material-ui/core';
+import { withWidth,Tabs, Tab, AppBar } from '@material-ui/core';
 // import Paper from '@material-ui/core/Paper';
 // import Tabs from '@material-ui/core/Tabs';
 // import Tab from '@material-ui/core/Tab';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
+// const useStyles = makeStyles({
+//   root: {
+//     flexGrow: 1,
+//   },
+// });
 
 const Footer = ({ skills, category, onSelect }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   // const [value, setValue] = React.useState(0);
 
   // function handleChange(event, newValue) {
@@ -21,12 +21,12 @@ const Footer = ({ skills, category, onSelect }) => {
   const onIndexSelect = (e, index) =>
     onSelect(index === 0 ? '' : skills[index - 1])
   return (
-    <Paper className={classes.root}>
+    <AppBar position="static">
       <Tabs
         value={index}
         onChange={onIndexSelect}
-        indicatorColor="primary"
-        textColor="primary"
+        indicatorColor="secondary"
+        textColor="secondary"
         centered
       >
         <Tab label="All" />
@@ -35,8 +35,8 @@ const Footer = ({ skills, category, onSelect }) => {
         )}
 
       </Tabs>
-    </Paper>
+    </AppBar>
   );
 }
 
-export default Footer
+export default withWidth()(Footer)

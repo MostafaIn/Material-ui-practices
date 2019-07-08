@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { FormControl, InputLabel, MenuItem, Select, TextField, Button } from '@material-ui/core'
-import { withStyles } from '@material-ui/styles';
+// import { withStyles } from '@material-ui/styles';
 
-const styles = theme => ({
-    formControl: {
-        width: 250
-    }
-})
+// const styles = theme => ({
+//     formControl: {
+//         width: 250
+//     }
+// })
 
 class Form extends Component {
     state = this.getInitState()
@@ -18,12 +18,12 @@ class Form extends Component {
             skills: ''
         }
     }
-    static getDerivedStateFromProps({ exercise }) {
-        // this.setState({
-        //     ...exercise
-        // })
-        return exercise || null
-    }
+    // static getDerivedStateFromProps({ exercise }) {
+    //     // this.setState({
+    //     //     ...exercise
+    //     // })
+    //     return exercise || null
+    // }
     handleChange = name => ({ target: { value } }) => {
         this.setState({
             [name]: value
@@ -34,25 +34,25 @@ class Form extends Component {
             id: this.state.title.toLocaleLowerCase().replace(/ /g, '-'),
             ...this.state
         })
-        this.setState(this.getInitState())
+        // this.setState(this.getInitState())
     }
     render() {
-        const { classes, skills: categories, exercise } = this.props,
+        const { skills: categories, exercise } = this.props,
             { title, description, skills } = this.state
         return (
-            <form className={classes.root}>
+            <form>
                 <TextField
                     label="Title"
                     value={title}
                     onChange={this.handleChange('title')}
                     margin="normal"
-                    className={classes.formControl}
+                    fullWidth
                 />
                 <br />
-                <FormControl>
+                <FormControl fullWidth>
                     <InputLabel htmlFor="skills">Skills</InputLabel>
                     <Select
-                        className={classes.formControl}
+                        fullWidth
                         value={skills}
                         onChange={this.handleChange('skills')}
                     >
@@ -71,14 +71,14 @@ class Form extends Component {
                     value={description}
                     onChange={this.handleChange('description')}
                     margin="normal"
-                    className={classes.formControl}
+                    fullWidth
                 />
                 <br />
-                <Button color="primary" onClick={this.handleSubmit}>
+                <Button color="primary" onClick={this.handleSubmit} variant="contained" disabled={!title || !skills || !description}>
                     {exercise ? 'Edit' : 'Create'}
                 </Button>
             </form>
         )
     }
 }
-export default withStyles(styles)(Form)
+export default Form

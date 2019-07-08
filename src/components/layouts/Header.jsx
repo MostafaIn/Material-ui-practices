@@ -12,6 +12,7 @@ import CreateDialog from '../exercises/Dialog'
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
+        padding: 10,
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -23,15 +24,16 @@ const useStyles = makeStyles(theme => ({
 
 const Header = ({ skills, onExerciseCreate }) => {
     const classes = useStyles();
+    
     return (
         <div>
-            <AppBar position="static">
+            <AppBar className={classes.root} position="static">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h3" className={classes.title}>
-                        <Typography style={{ fontSize: '1rem', marginTop: '22px' }}>my skills within</Typography>
+                        <Typography style={{ fontSize: '1rem' }}>my skills within</Typography>
                         Material UI
                     </Typography>
                     <CreateDialog
@@ -39,6 +41,7 @@ const Header = ({ skills, onExerciseCreate }) => {
                         onCreate={onExerciseCreate}
                     />
                 </Toolbar>
+                
             </AppBar>
         </div>
     )
